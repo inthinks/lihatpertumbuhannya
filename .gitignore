@@ -30,3 +30,4 @@ userdata/
 templates/
 application/controllers/pediasurePanel
 application/views/pediasurePanel
+application/config
