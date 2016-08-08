@@ -1,0 +1,82 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Photo_competition extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		if(!$this->session->userdata('user_logged_in')) redirect('home');
+		$this->load->model('general_model');
+		$this->load->model('photo_model');
+	}
+
+	function index(){
+		
+		$this->data['content']='photo_competition';
+		$this->load->view('common/body',$this->data);
+	}
+
+	function edit($id){
+		$id = str_replace('bangsat', '', base64_decode($id));
+		// echo $id; die;
+		$this->data['photo']=($this->photo_model->get_edit_photo($id, $this->session->userdata('user_id')));
+		$this->data['content']='photo_competition_edit';
+		$this->load->view('common/body',$this->data);
+	}
+
+	function do_post(){
+		$caption = $this->input->post('caption');
+		$token = $this->input->post('token');
+
+		$this->db->update('photo_competition_tb', array('caption'=>$caption),array('token'=>$token));
+		redirect('preview');
+	}
+
+	function upload($id=0){
+		if(!$this->input->is_ajax_request()){
+			show_404();
+		}
+		$id = str_replace('bangsat', '', base64_decode($id));
+		$config['upload_path']   = './userdata/photos/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('image')){
+        	$token=$this->input->post('token');
+        	$nama=$this->upload->data('file_name');
+			if(!$id){        	
+        		$this->db->insert('photo_competition_tb',array('user_id'=>$this->session->userdata('user_id'), 'active'=>1,'photo'=>$nama,'token'=>$token, 'created_date'=> date('Y-m-d H:i:s')));
+        	} else {
+        		$this->db->update('photo_competition_tb',array('photo'=> $nama), array('id' => $id));
+        	}
+        }
+	}
+
+	function remove_foto(){
+		if(!$this->input->is_ajax_request()){
+			show_404();
+		}
+
+		//Ambil token foto
+		$token=$this->input->post('token');
+		// echo $token; die;
+		
+		$foto=$this->db->get_where('photo_competition_tb',array('token'=>$token));
+		// pre($foto);die;
+
+		if($foto->row()){
+			$hasil=$foto->row();
+			// pre($hasil);die;
+			$nama_foto=$hasil->photo;
+			if(file_exists($file=FCPATH.'/userdata/photos/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->update('photo_competition_tb',array('photo'=>''),array('token'=>$token));
+
+		}
+
+
+		echo "{}";
+	}
+
+
+}
+?>

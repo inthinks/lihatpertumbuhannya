@@ -1,0 +1,46 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Photo_competition extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		$this->load->model('general_model');
+	}
+
+	function index(){
+		$this->data['content']='photo_competition';
+		$this->load->view('common/body',$this->data);
+	}
+
+	function upload(){
+		$config['upload_path'] = 'userdata';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['encrypt_name'] = TRUE;
+
+		$this->load->library('upload');
+		$this->upload->initialize($config);
+
+		if ($this->upload->do_upload('image'))
+		{	
+			$data = $this->upload->data('image');
+			$image =  $data['file_name'];
+		}
+
+		// $caption = $this->input->post('caption').' #LihatPertumbuhannya';
+
+		// if($caption ==""){
+		// 	$this->session->set_flashdata('notif', 'Caption harus diisi');
+		// 	redirect($_SERVER['HTTP_REFERER']);
+		// }
+
+		// $data=array('photo'=>$image,
+		// 			'caption'=>$caption,
+		// 			'user_id'=>$this->session->userdata('user_id'),
+		// 			'created_date'=>date('Y-m-d H:i:s'),
+		// 			'active'=>1);
+
+		// $this->general_model->insert_data('photo_competition_tb',$data);
+
+	}
+
+
+}
+?>

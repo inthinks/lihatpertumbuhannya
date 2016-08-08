@@ -1,0 +1,33 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Register extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		$this->load->model('general_model');
+	}
+
+	function index(){
+		$this->data['content']='';
+		$this->load->view('common/body',$this->data);
+	}
+
+	function register(){
+		$name = $this->security->xss_clean($this->input->post('nama'));
+		$email = $this->security->xss_clean($this->input->post('email'));
+		$telp = $this->security->xss_clean($this->input->post('telp'));
+		$tanggal = $this->input->post('tanggal_lahir');
+		$tanggal_lahir = date('Y-m-d',strtotime($tanggal));
+		$produk_susu = $this->security->xss_clean($this->input->post('produk_susu'));
+
+		$data=array('name'=>$name,
+					'email'=>$email,
+					'telp'=>$telp,
+					'tanggal_lahir_sikecil'=>$tanggal_lahir,
+					'product_susu_yang_digunakan'=>$produk_susu);
+
+		$this->general_model->update_data('user_tb',$data,array('id'=>$this->session->userdata('user_id')));
+		redirect('home');
+	}
+
+
+}
+?>

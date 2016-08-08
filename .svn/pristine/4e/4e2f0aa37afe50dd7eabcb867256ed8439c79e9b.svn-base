@@ -1,0 +1,26 @@
+<div class="content">
+        	<h3 class="tag">#LihatPertumbuhannya</h3>
+            <div class="featureWrapper">
+                <div class="featurePanel">
+                    <div class="image">
+                        <img src="<?php echo base_url() ?>templates/images/img_photocomp.png">
+                    </div>
+                    <div class="btnContainer">
+                    	<a class="clickArea" href="#" onClick="show_signup_popup();return false;"></a>
+                    	<div class="defBtn">PHOTO COMPETITION</div>
+                    </div>
+                    <p>Share foto Ibu dalam <b>mendukung pertumbuhan Si Kecil</b> & menangkan hadiah menarik dari <b>Pediasure</b></p>
+                </div>
+                <div class="featurePanel">
+                    <div class="image">
+                        <img src="<?php echo base_url() ?>templates/images/img_cekpertumbuhan.png">
+                    </div>
+                    <div class="btnContainer">
+                    	<a class="clickArea" href="#"></a>
+                    	<div class="defBtn">CEK PERTUMBUHAN SI KECIL</div>
+                    </div>
+                    <p>Lihat apakah <b>Si Kecil</b> sudah memiliki <b>gizi yang baik</b></p>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>

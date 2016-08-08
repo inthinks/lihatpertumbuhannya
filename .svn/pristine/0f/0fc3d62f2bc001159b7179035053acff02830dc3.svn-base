@@ -1,0 +1,73 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Register extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		$this->load->model('general_model');
+	}
+
+	function index(){
+		$this->data['content']='';
+		$this->load->view('common/body',$this->data);
+	}
+
+	function register(){
+		$name = $this->security->xss_clean($this->input->post('nama'));
+		$email = $this->security->xss_clean($this->input->post('email'));
+		$telp = $this->security->xss_clean($this->input->post('telp'));
+		$tanggal = $this->security->xss_clean($this->input->post('tanggal_lahir'));
+		$tanggal_lahir = date('Y-m-d',strtotime($tanggal));
+		$produk_susu = $this->security->xss_clean($this->input->post('produk_susu'));
+		$a = $this->input->post('a');
+
+		if(!$name){
+			$this->session->set_flashdata('notif', 'Nama harus diisi');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		if(!$email){
+			$this->session->set_flashdata('notif', 'Email harus diisi');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		if(!$telp){
+			$this->session->set_flashdata('notif', 'No.telp harus diisi');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		if(!$produk_susu){
+			$this->session->set_flashdata('notif', 'Produk susu harus diisi');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		if(!is_numeric($telp)){
+			$this->session->set_flashdata('notif', 'No.telp harus angka');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  			$this->session->set_flashdata('notif', 'Format email salah');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+
+		$data=array('name'=>$name,
+					'email'=>$email,
+					'telp'=>$telp,
+					'tanggal_lahir_sikecil'=>$tanggal_lahir,
+					'product_susu_yang_digunakan'=>$produk_susu);
+
+		$this->general_model->update_data('user_tb',$data,array('id'=>$this->session->userdata('user_id')));
+		if($a == "false"){
+			if($this->session->userdata('vserv')){
+			if($this->session->userdata('vserv')){ $a=$this->session->userdata('vserv'); }else{ $a=""; }
+			$this->session->set_userdata('vserv_link', '<img src="http://c.vserv.mobi/delivery/ti.php?vserv='.$a.'" width="1px;" height="1px;"/>');
+			}
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			if($this->session->userdata('vserv')){
+			if($this->session->userdata('vserv')){ $a=$this->session->userdata('vserv'); }else{ $a=""; }
+			$this->session->set_userdata('vserv_link', '<img src="http://c.vserv.mobi/delivery/ti.php?vserv='.$a.'" width="1px;" height="1px;"/>');
+			}
+			redirect('photo_competition');
+		}
+		
+	}
+
+
+}
+?>

@@ -1,0 +1,14 @@
+<?php if(!defined('BASEPATH')) exit('Hack attemp?');
+class Photo_model extends CI_Model{
+
+	function __construct(){
+		parent::__construct();
+	}
+	
+	function get_photo(){
+		$sql = "select * from photo_competition_tb order by created_date desc";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+}?>

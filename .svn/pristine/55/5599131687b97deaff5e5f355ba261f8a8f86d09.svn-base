@@ -1,0 +1,34 @@
+<div class="content">
+        	<h3 class="tag">#LihatPertumbuhannya</h3>
+            <h4>DUKUNGAN NUTRISI UNTUK ANAK YANG BERMASALAH MAKAN</h4>
+            <br>
+            <p>Pediasure adalah minuman serbuk sebagai dukungan nutrisi untuk tumbuh kembang anak usia 1 - 10 tahun
+yang bermasalah makan dengan rasa yang lezat.</p>
+			<br>
+			<p><span>Informasi Produk</span><br>
+			Pediasure dilengkapi dengan :</p>
+            <ul>
+            	<li><span>Mikro Nutrisi</span> (12 vitamin dan 7 mineral) dan <span>Makro Nutrisi</span> (Protein, Lemak, Karbohidrat) untuk pertumbuhan.</li>
+  				<li><span>Asam Linolenat</span> dan <span>Asam Linoleat</span> sebagai <span>asam lemak esensial.</span></li>
+                <li><span>Sumber protein,</span> membantu membangun dan memperbaiki jaringan tubuh.</li>
+                <li><span>Vitamin A, C, dan E</span> serta <span>mineral Zink &amp; Selenium.</span></li>
+                <li>Campuran <span>3 minyak nabati.</span></li>
+  			</ul>
+            <br>
+            <div class="productDesc">
+            	<div class="image">
+                	<img src="<?php echo base_url()?>templates/images/img_can.png">
+                </div>
+                <div class="caption">
+                	<p><span>Tersedia dalam rasa dan kemasan :</span></p>
+                    <ul>
+						<li>Vanilla | Kaleng 400 gram &amp; 850 gram</li>
+                        <li>Cokelat | Kaleng 400 gram &amp; 850 gram</li>
+                        <li>Madu | Kaleng 400 gram &amp; 850 gram</li>
+					</ul>
+                </div>
+            </div>
+            <div class="motto">
+            	<img src="<?php echo base_url()?>templates/images/img_motto.png">
+            </div>
+        </div>

@@ -1,0 +1,6 @@
+<footer>
+	<div class="footerWrapper">
+        <img class="footerRibbon" src="<?php echo base_url()?>templates/images/img_footerribbon.png">
+        <img class="footercanCaption" src="<?php echo base_url()?>templates/images/img_footercancaption.png">
+    </div>
+</footer>

@@ -1,0 +1,19 @@
+<footer>
+	<div class="footerWrapper">
+        <img class="footerRibbon" src="<?php echo base_url()?>templates/images/img_footerribbon.png">
+        <img class="footercanCaption" src="<?php echo base_url()?>templates/images/img_footercancaption.png">
+    </div>
+</footer>
+
+<div class="popupWrapper">
+    	<div class="overlay" onClick="hide_popup();"></div>
+        <div class="popupBox">
+        	<div class="popup" id="signupPopup">
+                <a href="#" class="closeBtn" onClick="hide_popup();">x</a>
+                <div class="popupContent">
+                    <a href="javascript:void(0)" class="defBtn fbshare facebook_login">Sign up with Facebook</a>
+                    <a href="javascript:void(0)" class="defBtn twitshare twitter_login">Sign up with Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>

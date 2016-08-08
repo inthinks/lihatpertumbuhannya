@@ -1,0 +1,143 @@
+<div class="content">
+        	<h3 class="tag">#LihatPertumbuhannya</h3>
+            <div class="featureWrapper">
+                <div class="featurePanel">
+                    <div class="image">
+                        <img src="<?php echo base_url() ?>templates/images/img_photocomp.png">
+                    </div>
+                    <div class="btnContainer">
+                    	<a class="clickArea" <?php if($this->session->userdata('user_logged_in')){ ?> href="<?php echo site_url('photo_competition') ?>" <?php }else{ ?>href="javascript:void(0)" onClick="show_signup_popup();return false;" <?php } ?>></a>
+                    	<div class="defBtn">PHOTO COMPETITION</div>
+                    </div>
+                    <p>Share foto Ibu dalam <b>mendukung pertumbuhan Si Kecil</b> & menangkan hadiah menarik dari <b>Pediasure</b></p>
+                </div>
+                <div class="featurePanel">
+                    <div class="image">
+                        <img src="<?php echo base_url() ?>templates/images/img_cekpertumbuhan.png">
+                    </div>
+                    <div class="btnContainer">
+                    	<a class="clickArea" href="<?php echo site_url('cek_pertumbuhan') ?>"></a>
+                    	<div class="defBtn">CEK PERTUMBUHAN SI KECIL</div>
+                    </div>
+                    <p>Lihat apakah <b>Si Kecil</b> sudah memiliki <b>gizi yang baik</b></p>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+<?php 
+    if($this->session->userdata('user_logged_in')){
+        $name = find('name',$this->session->userdata('user_id'),'user_tb');
+        $telp = find('telp',$this->session->userdata('user_id'),'user_tb');
+        $email = find('email',$this->session->userdata('user_id'),'user_tb');
+        $produk_susu = find('product_susu_yang_digunakan',$this->session->userdata('user_id'),'user_tb');
+    }
+ ?>
+<div class="popupWrapper">
+        <div class="overlay" onClick="hide_popup();"></div>
+        <div class="popupBox">
+            <div class="popup" id="signupPopup">
+                <a href="#" class="closeBtn" onClick="hide_popup();">x</a>
+                <div class="popupContent">
+                    <a href="javascript:void(0)" class="defBtn fb facebook_login" onClick="show_signup2_popup();returnfalse;">Sign up with Facebook</a>
+                    <a href="javascript:void(0)" class="defBtn twit twitter_login" onClick="show_signup2_popup();returnfalse;">Sign up with Twitter</a>
+                </div>
+            </div>
+            <div class="popup" id="signupPopup2">
+                <a href="#" class="closeBtn" onClick="hide_popup();">x</a>
+                <div class="popupContent">
+                    <div class="joinForm">
+                        <h3>#LihatPertumbuhannya</h3>
+                        <table>
+                            <form method="post" action="<?php echo site_url('register/register') ?>" id="formID5">
+                            <tr>
+                                <td><b>Nama Ibu</b></td>
+                                <td><input type="text" name="nama" id="nama" value="<?php echo find('name',$this->session->userdata('user_id'),'user_tb') ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>E-mail</b></td>
+                                <td><input type="text" name="email" id="email" value="<?php echo find('email',$this->session->userdata('user_id'),'user_tb') ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>No. Telp</b></td>
+                                <td><input type="text" id="telp" name="telp" value="<?php echo find('telp',$this->session->userdata('user_id'),'user_tb') ?>"></td>
+                            </tr>
+                            <tr>
+                                <?php $tanggal = find('tanggal_lahir_sikecil',$this->session->userdata('user_id'),'user_tb'); 
+                                $tanggal_lahir = date('d-m-Y',strtotime($tanggal)); ?>
+                                <td><b>Tanggal lahir Si Kecil</b></td>
+                                <td><input id="date" data-format="DD-MM-YYYY" data-template="DD MM YYYY" name="tanggal_lahir" value="<?php if($tanggal){ if($tanggal=="0000-00-00"){echo "01-01-2010";}else{echo $tanggal_lahir;} }else{ echo "01-01-2010"; }?>" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Produk susu yang digunakan</b></td>
+                                <td><input type="text" id="produk_susu" name="produk_susu" value="<?php echo find('product_susu_yang_digunakan',$this->session->userdata('user_id'),'user_tb') ?>"></td>
+                            </tr>
+                        </table>
+                        <div class="termsCondition">
+                            <input type="radio" id="SK"><label for="SK"><span></span>syarat dan ketentuan berlaku</label>
+                            <a href="#" class="disclaimer">Disclaimer</a>
+                        </div>
+                        <div class="btnContainer">
+                            <a class="clickArea" href="javascript:void(0)" id="submit5"></a>
+                            <div class="defBtn">JOIN</div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(function(){
+        $('#date').combodate({
+            firstItem: 'none'
+        });  
+        $("select").selectOrDie({
+            size: 8,
+            customClass: 'popupDropdown'
+        });  
+    });
+
+$(document).ready(function(){
+    $("#submit5").click(function() {
+        var nama = $('#nama').val();
+        var telp = $('#telp').val();
+        var email = $('#email').val();
+        var date = $('#date').val();
+        var produk_susu = $('#produk_susu').val();
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+
+        if(telp==''){
+            alert('No.telp harus diisi');
+            return false;
+        }
+        if(nama==''){
+            alert('Nama harus diisi');
+            return false;
+        }
+        if(email==''){
+            alert('Email harus diisi');
+            return false;
+        }
+        if(produk_susu==''){
+            alert('Produk susu yang digunakan harus diisi');
+            return false;
+        }
+        if (!mailformat.test(email)){ 
+            alert('Format email salah');
+            return false;
+        }
+        if(isNaN(telp)){
+            alert('No.telp harus angka');
+            return false;
+        }
+        if(!$('#SK:checked').val()){
+            alert('Tolong check syarat dan ketentuan');
+            return false;
+        }
+        else{
+            $("#formID5").submit();
+        }
+    });
+});
+</script>

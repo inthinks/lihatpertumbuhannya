@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Pediasure | About Pediasure</title>
+<meta name="viewport" content="target-densitydpi=device-dpi; width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta name="HandheldFriendly" content="true" />
+<link rel="stylesheet" type="text/css" href="css/fontAttach/fontattach.css">
+<link rel="stylesheet" type="text/css" href="css/pediasure.css">
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="wrapper about">
+    	<div class="headerWrapper">
+            <header>
+                <div class="logo"></div>
+            </header>
+            <nav>
+            	<a href="#" class="closeBtn">closeBtn</a>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="about_pediasure.html" class="active">ABOUT PEDIASURE</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">SIGN UP</a></li>
+                    <li><a href="#">T&amp;C</a></li>
+                    <li><a href="makanan_bervariasi.html">MAKANAN BERVARIASI</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="burgerIcon"></a>
+        </div>
+        <div class="content">
+        	<h3 class="tag">#LihatPertumbuhannya</h3>
+            <h4>DUKUNGAN NUTRISI UNTUK ANAK YANG BERMASALAH MAKAN</h4>
+            <br>
+            <p>Pediasure adalah minuman serbuk sebagai dukungan nutrisi untuk tumbuh kembang anak usia 1 - 10 tahun
+yang bermasalah makan dengan rasa yang lezat.</p>
+			<br>
+			<p><b>Informasi Produk</b><br>
+			Pediasure dilengkapi dengan :</p>
+            <ul>
+            	<li><b>Mikro Nutrisi</b> (12 vitamin dan 7 mineral) dan <b>Makro Nutrisi</b> (Protein, Lemak, Karbohidrat) untuk pertumbuhan.</li>
+  				<li><b>Asam Linolenat</b> dan <b>Asam Linoleat</b> sebagai <b>asam lemak esensial.</b></li>
+                <li><b>Sumber protein,</b> membantu membangun dan memperbaiki jaringan tubuh.</li>
+                <li><b>Vitamin A, C, dan E</b> serta <b>mineral Zink &amp; Selenium.</b></li>
+                <li>Campuran <b>3 minyak nabati.</b></li>
+  			</ul>
+            <br>
+            <div class="productDesc">
+            	<div class="image">
+                	<img src="images/img_can.png">
+                </div>
+                <div class="caption">
+                	<p><b>Tersedia dalam rasa dan kemasan :</b></p>
+                    <ul>
+						<li>Vanilla | Kaleng 400 gram &amp; 850 gram</li>
+                        <li>Cokelat | Kaleng 400 gram &amp; 850 gram</li>
+                        <li>Madu | Kaleng 400 gram &amp; 850 gram</li>
+					</ul>
+                </div>
+            </div>
+            <div class="motto">
+            	<img src="images/img_motto.png">
+            </div>
+        </div>
+        <footer>
+        	<div class="footerWrapper">
+                <img class="footerRibbon" src="images/img_footerribbon.png">
+                <img class="footercanCaption" src="images/img_footercancaption.png">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

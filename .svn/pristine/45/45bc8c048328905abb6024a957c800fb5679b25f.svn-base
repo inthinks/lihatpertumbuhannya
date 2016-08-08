@@ -1,0 +1,28 @@
+<div class="content">
+            <h3 class="tag">#LihatPertumbuhannya<span>Photo Gallery</span></h3>
+            <div class="periodeTab">
+                <a href="#" class="active">PERIODE I</a>
+                <a href="#">PERIODE II</a>
+            </div>
+            <h2 class="galleryMotto"><b>“Lihat, aku sudah tinggi!”</b></h2>
+            <div class="galleryWrapper">
+                <?php foreach ($photos as $list): ?>
+                <div class="previewBox">
+                    <div class="image">
+                        <img src="<?php echo base_url().'userdata/photos/'.$list['photo']; ?>">
+                    </div>
+                    <div class="captionWrapper">
+                        <div class="caption">
+                            <p><?php echo $list['caption'];?> </p>
+                        </div>
+                        <div class="profile">
+                            <div class="profileImage">
+                                <img src="<?php echo $list['profile_picture']?>" title="<?php echo $list['name']?>" alt="<?php echo $list['name']?>">
+                            </div>
+                            <p><b><?php echo $list['name'];?></b></p>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach ?>
+            </div>
+        </div>

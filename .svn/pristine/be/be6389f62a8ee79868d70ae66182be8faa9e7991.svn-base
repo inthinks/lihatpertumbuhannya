@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Pediasure | Makanan Bervariasi</title>
+<meta name="viewport" content="target-densitydpi=device-dpi; width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta name="HandheldFriendly" content="true" />
+<link rel="stylesheet" type="text/css" href="css/fontAttach/fontattach.css">
+<link rel="stylesheet" type="text/css" href="css/pediasure.css">
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+    	<header>
+    		<div class="logo"></div>
+        </header>
+        <nav>
+        	<ul>
+            	<li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT PEDIASURE</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">SIGN UP</a></li>
+                <li><a href="#">T&C</a></li>
+                <li><a href="#" class="active">MAKANAN BERVARIASI</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+        	<h1>#LihatPertumbuhannya</h1>
+            <p class="bold">Kelompok makanan khusus untuk nilai skor keanekaragaman bahan makanan bagi Si Kecil</p>
+			<p>Kelompok makanan dihitung berdasarkan pentingnya makanan tertentu bagi Si Kecil. Terdapat 8 skor kelompok makanan, yaitu :</p>
+            <br>
+			<ul>
+				<li>Gandum, umbi-umbian</li>
+				<li>Makanan yang kaya akan vitamin A</li>
+				<li>Buah-buahan atau sayur-sayuran</li>
+				<li>Daging, unggas, ikan, makanan laut</li>
+				<li>Telur</li>
+				<li>Kacang-kacangan/biji-bijian</li>
+				<li>Susu dan produk yang terbuat dari susu</li>
+				<li>Makanan yang dimakan dengan minyak/lemak</li>
+			</ul>
+            <div class="contentImg">
+            	<img src="images/img_fruit.png">
+            </div>
+        </div>
+        <footer>
+        	<img src="images/footer.png">
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Preview extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		$this->load->model('photo_model');
+	}
+
+	function index(){
+		$this->data['photo']=($this->photo_model->get_last_photo());
+		// pre($a); die;
+		$this->data['content']='photoPreview';
+		$this->load->view('common/body',$this->data);
+	}
+
+	
+}
+?>

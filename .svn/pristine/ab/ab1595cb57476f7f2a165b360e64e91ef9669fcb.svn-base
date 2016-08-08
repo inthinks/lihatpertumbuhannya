@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Pediasure | Photo Competition</title>
+<meta name="viewport" content="target-densitydpi=device-dpi; width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta name="HandheldFriendly" content="true" />
+<link rel="stylesheet" type="text/css" href="css/dropzone.css">
+<link rel="stylesheet" type="text/css" href="css/fontAttach/fontattach.css">
+<link rel="stylesheet" type="text/css" href="css/pediasure.css">
+<script type="text/javascript" src="js/dropzone.js"></script>
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+    	<div class="headerWrapper">
+            <header>
+                <div class="logo"></div>
+            </header>
+            <nav>
+            	<a href="#" class="mobilecloseBtn">closeBtn</a>
+                <ul>
+                    <li><a href="cek_pertumbuhannya.html" class="active">HOME</a></li>
+                    <li><a href="about_pediasure.html">ABOUT PEDIASURE</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">SIGN UP</a></li>
+                    <li><a href="#">T&amp;C</a></li>
+                    <li><a href="makanan_bervariasi.html">MAKANAN BERVARIASI</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="burgerIcon"></a>
+        </div>
+        <div class="content">
+        	<h3 class="tag">#LihatPertumbuhannya</h3>
+                <div class="periode">
+                <h2><b>Periode II : “Lihat, aku sudah tinggi!”</b></h2>
+                <p><b>Posting foto Si Kecil</b> saat sedang <b>mengukur tinggi badan</b> dan <b>tulis caption</b> tentang kemajuan pertumbuhan mereka</p>
+            </div>
+            <div class="featureWrapper">
+                <div class="featurePanel">
+                	<div class="uploadBtn">
+                        <div class="dropzoneBox">
+                            <form action="/file-upload" class="dropzone" id="uploadFoto"></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="featurePanel">
+                    <div class="uploadData">
+                    	<div class="input">
+                        	<p><b>Caption :</b></p>
+                            <textarea></textarea>
+							<p>#LihatPertumbuhannya</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="btnContainer">
+                <a class="clickArea" href="#"></a>
+                <div class="defBtn">POST</div>
+            </div>
+        </div>
+        <footer>
+        	<div class="footerWrapper">
+                <img class="footerRibbon" src="images/img_footerribbon.png">
+                <img class="footercanCaption" src="images/img_footercancaption.png">
+            </div>
+        </footer>
+    </div>
+    <div class="popupWrapper">
+    	<div class="overlay" onClick="hide_popup();"></div>
+        <div class="popupBox">
+        	<div class="popup" id="signupPopup">
+                <a href="#" class="closeBtn" onClick="hide_popup();">x</a>
+                <div class="popupContent">
+                    <a href="#" class="defBtn fbshare">Sign up with Facebook</a>
+                    <a href="#" class="defBtn twitshare">Sign up with Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+Dropzone.options.uploadFoto = {
+	dictDefaultMessage: "",
+	//clickable: true,
+	//uploadMultiple: true,
+	addRemoveLinks: true,
+	thumbnailWidth: 100,
+	thumbnailHeight: 100,
+	acceptedFiles: ".jpg, .png, .jpeg",
+	maxFiles: 1,
+	init: function() {
+		this.on("error", function(file){
+			if (!file.accepted) this.removeFile(file);
+		});
+		
+		this.on("success", function(file, response) {
+			
+
+			var obj = jQuery.parseJSON(response);
+
+			//for delete file when click remove file
+			file.serverId = obj['id'];
+			
+			/*$(file.previewTemplate).find('.dz-remove').off().on("click", function(e) {
+				$.ajax({
+					type:"POST",
+					url:base_url+'challenge/remove_dropzone/'+file.serverId,
+					dataType:"JSON",
+					success: function(temp){
+						
+					}
+				});
+			});*/
+		});
+	}
+};
+</script>

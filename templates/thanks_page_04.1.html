@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Pediasure | Photo Competition</title>
+<meta name="viewport" content="target-densitydpi=device-dpi; width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta name="HandheldFriendly" content="true" />
+<link rel="stylesheet" type="text/css" href="css/dropzone.css">
+<link rel="stylesheet" type="text/css" href="css/fontAttach/fontattach.css">
+<link rel="stylesheet" type="text/css" href="css/pediasure.css">
+<script type="text/javascript" src="js/dropzone.js"></script>
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body onLoad="show_share_popup();">
+	<div class="wrapper">
+    	<div class="headerWrapper">
+            <header>
+                <div class="logo"></div>
+            </header>
+            <nav>
+            	<a href="#" class="mobilecloseBtn">closeBtn</a>
+                <ul>
+                    <li><a href="cek_pertumbuhannya.html" class="active">HOME</a></li>
+                    <li><a href="about_pediasure.html">ABOUT PEDIASURE</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">SIGN UP</a></li>
+                    <li><a href="#">T&amp;C</a></li>
+                    <li><a href="makanan_bervariasi.html">MAKANAN BERVARIASI</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="burgerIcon"></a>
+        </div>
+        <div class="content">
+            <div class="thanksWrapper">
+            	<h3 class="tag">#LihatPertumbuhannya</h3>
+            	<p>Terima kasih sudah berpartisipasi, nantikan kompetisi <b>periode selanjutnya</b> Jangan lupa berikan <b>Pediasure</b> untuk <b>mendukung pertumbuhan</b> Si Kecil yang <b>berisiko kekurangan nutrisi</b> antara lain akibat masalah makan</p>
+                <div class="btnContainer">
+                    <a class="clickArea" href="#"></a>
+                    <div class="defBtn">CEK PERTUMBUHAN SI KECIL</div>
+                </div>
+            </div> 
+        </div>
+        <footer>
+        	<div class="footerWrapper">
+                <img class="footerRibbon" src="images/img_footerribbon.png">
+                <img class="footercanCaption" src="images/img_footercancaption.png">
+            </div>
+        </footer>
+    </div>
+    <div class="popupWrapper">
+    	<div class="overlay" onClick="hide_popup();"></div>
+        <div class="popupBox">
+        	<div class="popup" id="sharePopup">
+                <a href="#" class="closeBtn" onClick="hide_popup();">x</a>
+                <div class="popupContent">
+                    <a href="#" class="defBtn fb">Share to Facebook</a>
+                    <a href="#" class="defBtn twit">Share to Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

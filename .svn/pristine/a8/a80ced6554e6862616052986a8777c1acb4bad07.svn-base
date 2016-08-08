@@ -1,0 +1,14 @@
+<?php if(!defined('BASEPATH')) exit('Hack attemp?');
+class User_model extends CI_Model{
+
+	function __construct(){
+		parent::__construct();
+	}
+	
+	function get_user(){
+		$sql = "select * from user_tb";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+}?>
